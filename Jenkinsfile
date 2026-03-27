@@ -10,6 +10,13 @@ pipeline {
     }
 
     stages {
+        stage('Install remotes') {
+            steps {
+                sh '''
+                Rscript -e "install.packages('remotes', repos='https://cloud.r-project.org')"
+                '''
+            }
+        }
         stage('Run Script') {
             steps {
                 withCredentials([file(credentialsId: 'renviron', variable: 'RENVI_FILE')]) {
