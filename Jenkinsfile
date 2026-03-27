@@ -10,7 +10,7 @@ pipeline {
             steps {
                 sh '''
                 # Run the script
-                Rscript pileline.R
+                Rscript pipeline.R
                 '''
             }
         }
