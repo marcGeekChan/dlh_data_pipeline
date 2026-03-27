@@ -6,7 +6,7 @@ pipeline {
     }
 
     environment {
-        GITHUB_TOKEN = credentials('github')
+        GITHUB_PAT = credentials('github')
     }
 
     stages {
