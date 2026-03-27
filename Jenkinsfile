@@ -5,13 +5,19 @@ pipeline {
         }
     }
 
+    environment {
+        GITHUB_TOKEN = credentials('github-token')
+    }
+
     stages {
         stage('Run Script') {
             steps {
-                sh '''
-                # Run the script
-                Rscript pipeline.R
-                '''
+                withCredentials([file(credentialsId: 'renviron', variable: 'RENVI_FILE')]) {
+                    sh '''
+                    cp $RENVI_FILE ~/.Renviron
+                    Rscript -e "Sys.setenv(GITHUB_TOKEN='${GITHUB_TOKEN}'); remotes::install_github('marcGeekChan/pipelineR')"
+                    '''
+                }
             }
         }
     }
