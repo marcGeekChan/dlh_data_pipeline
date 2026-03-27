@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        dockerContainer  {
+        docker  {
             image 'r-base:4.5.3'
         }
     }
