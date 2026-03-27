@@ -22,7 +22,7 @@ pipeline {
                 withCredentials([file(credentialsId: 'renviron', variable: 'RENVI_FILE')]) {
                     sh '''
                     cp $RENVI_FILE ~/.Renviron
-                    Rscript -e "Sys.setenv(GITHUB_TOKEN='${GITHUB_TOKEN}'); remotes::install_github('marcGeekChan/pipelineR')"
+                    Rscript -e "Sys.setenv(GITHUB_PAT ='${GITHUB_PAT }'); remotes::install_github('marcGeekChan/pipelineR')"
                     '''
                 }
             }
