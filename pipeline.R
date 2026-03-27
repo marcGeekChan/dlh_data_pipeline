@@ -1,4 +1,4 @@
-install.packages('remotes', repos='https://cloud.r-project.org')"
+install.packages("remotes")
 remotes::install_github('marcGeekChan/pipelineR')"
 library(pipelineR)
 start_pipeline()
